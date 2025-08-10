@@ -1,11 +1,31 @@
 {
   "app_title": "ラテライン",
+  "language": "言語",
+  "theme": "テーマ",
+  "light": "ライト",
+  "dark": "ダーク",
   "menu": "メニュー",
   "home": "ホーム",
-  "orders": "注文",
+  "orders": "注文履歴",
   "settings": "設定",
-  "change_language": "言語",
-  "change_theme": "テーマ",
-  "light": "ライト",
-  "dark": "ダーク"
+
+  "coffees": "コーヒー",
+  "foods": "フード",
+
+  "drip": "ドリップコーヒー",
+  "ice": "アイスコーヒー",
+  "cafe_au_lait": "カフェオレ",
+
+  "egg_sandwich": "卵サンド",
+  "ham_cheese_croissant": "ハムチーズクロワッサン",
+
+  "add_to_cart": "カートに追加",
+  "added_to_cart": "カートに追加されました",
+
+  "cart_empty": "カートは空です",
+  "total": "合計",
+  "confirm_order": "注文を確定する",
+  "yes": "はい",
+  "no": "いいえ",
+  "thank_you_order": "ご注文ありがとうございます"
 }

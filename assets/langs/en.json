@@ -1,11 +1,31 @@
 {
   "app_title": "LatteLine",
+  "language": "Language",
+  "theme": "Theme",
+  "light": "Light",
+  "dark": "Dark",
   "menu": "Menu",
   "home": "Home",
   "orders": "Orders",
   "settings": "Settings",
-  "change_language": "Language",
-  "change_theme": "Theme",
-  "light": "Light",
-  "dark": "Dark"
+
+  "coffees": "Coffees",
+  "foods": "Foods",
+
+  "drip": "Drip Coffee",
+  "ice": "Iced Coffee",
+  "cafe_au_lait": "Café au Lait",
+
+  "egg_sandwich": "Egg Sandwich",
+  "ham_cheese_croissant": "Ham & Cheese Croissant",
+
+  "add_to_cart": "Add to cart",
+  "added_to_cart": "Added to cart",
+
+  "cart_empty": "Cart is empty",
+  "total": "Total",
+  "confirm_order": "Confirm Order",
+  "yes": "Yes",
+  "no": "No",
+  "thank_you_order": "Thank you for your order"
 }
