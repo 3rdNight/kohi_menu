@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:easy_localization/easy_localization.dart';
-import '../widgets/app_drawer.dart';
 import '../data/menu_data.dart';
+import '../widgets/custom_bottom_nav_bar.dart';
 import 'product_detail_screen.dart';
 
 enum OptionType { coffees, foods }
@@ -18,7 +18,6 @@ class SubOptionsScreen extends StatelessWidget {
         optionType == OptionType.coffees ? tr('coffees') : tr('foods');
 
     return Scaffold(
-      drawer: const AppDrawer(currentRoute: ''),
       appBar: AppBar(
         centerTitle: true,
         title: Text(title),
@@ -69,9 +68,21 @@ class SubOptionsScreen extends StatelessWidget {
           }).toList(),
         ),
       ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: () => Navigator.pop(context),
-        child: const Icon(Icons.arrow_back),
+      bottomNavigationBar: CustomBottomNavBar(
+        currentIndex: 0, // Mantemos Home como referência
+        onTap: (index) {
+          switch (index) {
+            case 0:
+              Navigator.pushReplacementNamed(context, '/');
+              break;
+            case 1:
+              Navigator.pushReplacementNamed(context, '/orders');
+              break;
+            case 2:
+              Navigator.pushReplacementNamed(context, '/settings');
+              break;
+          }
+        },
       ),
     );
   }

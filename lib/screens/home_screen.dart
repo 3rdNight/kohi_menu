@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:easy_localization/easy_localization.dart';
-import '../widgets/app_drawer.dart';
+import '../widgets/custom_bottom_nav_bar.dart';
 import 'sub_options_screen.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -9,7 +9,6 @@ class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      drawer: const AppDrawer(currentRoute: '/'),
       appBar: AppBar(
         centerTitle: true,
         title: Text(tr('app_title')),
@@ -20,8 +19,7 @@ class HomeScreen extends StatelessWidget {
           children: [
             _OptionButton(
               label: tr('coffees'),
-              imagePath:
-                  'assets/images/coffees.png', // substitua pela sua imagem
+              imagePath: 'assets/images/coffees.png',
               onTap: () {
                 Navigator.push(
                   context,
@@ -35,7 +33,7 @@ class HomeScreen extends StatelessWidget {
             const SizedBox(width: 20),
             _OptionButton(
               label: tr('foods'),
-              imagePath: 'assets/images/foods.png', // substitua pela sua imagem
+              imagePath: 'assets/images/foods.png',
               onTap: () {
                 Navigator.push(
                   context,
@@ -48,6 +46,22 @@ class HomeScreen extends StatelessWidget {
             ),
           ],
         ),
+      ),
+      bottomNavigationBar: CustomBottomNavBar(
+        currentIndex: 0,
+        onTap: (index) {
+          switch (index) {
+            case 0:
+              Navigator.pushReplacementNamed(context, '/');
+              break;
+            case 1:
+              Navigator.pushReplacementNamed(context, '/orders');
+              break;
+            case 2:
+              Navigator.pushReplacementNamed(context, '/settings');
+              break;
+          }
+        },
       ),
     );
   }

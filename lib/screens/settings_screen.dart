@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:easy_localization/easy_localization.dart';
-import '../widgets/app_drawer.dart';
 import '../main.dart';
+import '../widgets/custom_bottom_nav_bar.dart';
 
 class SettingsScreen extends StatefulWidget {
   const SettingsScreen({super.key});
@@ -17,11 +17,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
     final isDarkMode = MyApp.of(context)?.themeMode == ThemeMode.dark;
 
     return Scaffold(
-      drawer: const AppDrawer(currentRoute: '/settings'),
-      appBar: AppBar(
-        centerTitle: true,
-        title: Text(tr('app_title')),
-      ),
+      appBar: AppBar(title: Text(tr('app_title')), centerTitle: true),
       body: Padding(
         padding: const EdgeInsets.all(16),
         child: Column(
@@ -37,7 +33,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
                 onChanged: (Locale? newLocale) {
                   if (newLocale != null) {
                     context.setLocale(newLocale);
-                    setState(() {}); // Atualiza a UI
+                    setState(() {});
                   }
                 },
               ),
@@ -52,10 +48,8 @@ class _SettingsScreenState extends State<SettingsScreen> {
                     value: false,
                     groupValue: isDarkMode,
                     onChanged: (val) {
-                      if (val != null) {
-                        MyApp.of(context)?.toggleTheme(false);
-                        setState(() {}); // Atualiza a UI
-                      }
+                      if (val != null) MyApp.of(context)?.toggleTheme(false);
+                      setState(() {});
                     },
                   ),
                   Text(tr('dark')),
@@ -63,10 +57,8 @@ class _SettingsScreenState extends State<SettingsScreen> {
                     value: true,
                     groupValue: isDarkMode,
                     onChanged: (val) {
-                      if (val != null) {
-                        MyApp.of(context)?.toggleTheme(true);
-                        setState(() {}); // Atualiza a UI
-                      }
+                      if (val != null) MyApp.of(context)?.toggleTheme(true);
+                      setState(() {});
                     },
                   ),
                 ],
@@ -74,6 +66,22 @@ class _SettingsScreenState extends State<SettingsScreen> {
             ),
           ],
         ),
+      ),
+      bottomNavigationBar: CustomBottomNavBar(
+        currentIndex: 2,
+        onTap: (index) {
+          switch (index) {
+            case 0:
+              Navigator.pushReplacementNamed(context, '/');
+              break;
+            case 1:
+              Navigator.pushReplacementNamed(context, '/orders');
+              break;
+            case 2:
+              Navigator.pushReplacementNamed(context, '/settings');
+              break;
+          }
+        },
       ),
     );
   }

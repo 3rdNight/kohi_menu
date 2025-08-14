@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:easy_localization/easy_localization.dart';
-import '../widgets/app_drawer.dart';
 import '../data/cart.dart';
 import '../data/menu_data.dart';
+import '../widgets/custom_bottom_nav_bar.dart';
 
 class OrdersScreen extends StatefulWidget {
   const OrdersScreen({super.key});
@@ -17,23 +17,20 @@ class _OrdersScreenState extends State<OrdersScreen> {
     setState(() {});
   }
 
-  String formatPrice(double price) {
-    // Sempre em iene com símbolo ¥ e sem casas decimais
-    return '¥${price.toStringAsFixed(0)}';
-  }
+  String formatPrice(double price) => '¥${price.toStringAsFixed(0)}';
 
   Future<void> _confirmOrder() async {
     final result = await showDialog<bool>(
       context: context,
       builder: (ctx) => AlertDialog(
-        title: Text(tr('confirm_order')),
+        title: Text(tr('confirm_order')), // "Confirmar pedido?"
         actions: [
           TextButton(
-            onPressed: () => Navigator.of(ctx).pop(false),
+            onPressed: () => Navigator.of(ctx).pop(false), // Não
             child: Text(tr('no')),
           ),
           TextButton(
-            onPressed: () => Navigator.of(ctx).pop(true),
+            onPressed: () => Navigator.of(ctx).pop(true), // Sim
             child: Text(tr('yes')),
           ),
         ],
@@ -41,25 +38,21 @@ class _OrdersScreenState extends State<OrdersScreen> {
     );
 
     if (result == true) {
+      cart.clear(); // Limpa o carrinho
+      setState(() {}); // Atualiza a tela
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(
           content: Text(tr('thank_you_order')),
           duration: const Duration(seconds: 3),
         ),
       );
-      cart.clear();
-      setState(() {});
     }
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      drawer: const AppDrawer(currentRoute: '/orders'),
-      appBar: AppBar(
-        centerTitle: true,
-        title: Text(tr('orders')),
-      ),
+      appBar: AppBar(title: Text(tr('orders')), centerTitle: true),
       body: cart.isEmpty
           ? Center(child: Text(tr('cart_empty')))
           : ListView.builder(
@@ -79,23 +72,46 @@ class _OrdersScreenState extends State<OrdersScreen> {
                 );
               },
             ),
-      bottomNavigationBar: Container(
-        padding: const EdgeInsets.all(16),
-        child: Row(
-          children: [
-            Expanded(
-              child: Text(
-                '${tr('total')}: ${formatPrice(getCartTotal())}',
-                style:
-                    const TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
-              ),
+      bottomNavigationBar: Column(
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          // Total + botão de confirmar pedido
+          Container(
+            padding: const EdgeInsets.all(16),
+            child: Row(
+              children: [
+                Expanded(
+                  child: Text(
+                    '${tr('total')}: ${formatPrice(getCartTotal())}',
+                    style: const TextStyle(
+                        fontSize: 18, fontWeight: FontWeight.bold),
+                  ),
+                ),
+                ElevatedButton(
+                  onPressed: cart.isEmpty ? null : _confirmOrder,
+                  child: Text(tr('confirm_order')),
+                ),
+              ],
             ),
-            ElevatedButton(
-              onPressed: cart.isEmpty ? null : _confirmOrder,
-              child: Text(tr('confirm_order')),
-            ),
-          ],
-        ),
+          ),
+          // Bottom navigation
+          CustomBottomNavBar(
+            currentIndex: 1,
+            onTap: (index) {
+              switch (index) {
+                case 0:
+                  Navigator.pushReplacementNamed(context, '/');
+                  break;
+                case 1:
+                  Navigator.pushReplacementNamed(context, '/orders');
+                  break;
+                case 2:
+                  Navigator.pushReplacementNamed(context, '/settings');
+                  break;
+              }
+            },
+          ),
+        ],
       ),
     );
   }
