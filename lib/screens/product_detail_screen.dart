@@ -25,6 +25,8 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
   @override
   Widget build(BuildContext context) {
     final item = widget.item;
+    final isDarkMode = Theme.of(context).brightness == Brightness.dark;
+    final textColor = isDarkMode ? Colors.white : Colors.black87;
 
     return Scaffold(
       appBar: AppBar(title: Text(tr(item.labelKey)), centerTitle: true),
@@ -40,22 +42,38 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
               ),
             ),
             const SizedBox(height: 16),
-            Text(tr(item.labelKey),
-                style:
-                    const TextStyle(fontSize: 24, fontWeight: FontWeight.bold)),
-            Text(formatPrice(item.price),
-                style: const TextStyle(fontSize: 18, color: Colors.grey)),
+            Text(
+              tr(item.labelKey),
+              style: TextStyle(
+                  fontSize: 24, fontWeight: FontWeight.bold, color: textColor),
+            ),
+            const SizedBox(height: 4),
+            Text(
+              formatPrice(item.price),
+              style: TextStyle(fontSize: 18, color: textColor.withOpacity(0.7)),
+            ),
+            const SizedBox(height: 12),
+            Text(
+              tr(item.descriptionKey),
+              style: TextStyle(fontSize: 16, color: textColor),
+              textAlign: TextAlign.center,
+            ),
             const SizedBox(height: 20),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 IconButton(
-                    onPressed: decrement,
-                    icon: const Icon(Icons.remove_circle_outline)),
-                Text(quantity.toString(), style: const TextStyle(fontSize: 20)),
+                  onPressed: decrement,
+                  icon: const Icon(Icons.remove_circle_outline),
+                  color: textColor,
+                ),
+                Text(quantity.toString(),
+                    style: TextStyle(fontSize: 20, color: textColor)),
                 IconButton(
-                    onPressed: increment,
-                    icon: const Icon(Icons.add_circle_outline)),
+                  onPressed: increment,
+                  icon: const Icon(Icons.add_circle_outline),
+                  color: textColor,
+                ),
               ],
             ),
             const SizedBox(height: 20),
@@ -73,7 +91,7 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
         ),
       ),
       bottomNavigationBar: CustomBottomNavBar(
-        currentIndex: 0, // Mantemos Home como referência
+        currentIndex: 0,
         onTap: (index) {
           switch (index) {
             case 0:

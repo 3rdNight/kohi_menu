@@ -17,7 +17,10 @@ class _SettingsScreenState extends State<SettingsScreen> {
     final isDarkMode = MyApp.of(context)?.themeMode == ThemeMode.dark;
 
     return Scaffold(
-      appBar: AppBar(title: Text(tr('app_title')), centerTitle: true),
+      appBar: AppBar(
+        title: Text(tr('settings')), // agora o título mostra "Settings"
+        centerTitle: true,
+      ),
       body: Padding(
         padding: const EdgeInsets.all(16),
         child: Column(

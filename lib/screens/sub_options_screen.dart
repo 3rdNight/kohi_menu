@@ -8,14 +8,46 @@ enum OptionType { coffees, foods }
 
 class SubOptionsScreen extends StatelessWidget {
   final OptionType optionType;
+  final String searchQuery;
 
-  const SubOptionsScreen({super.key, required this.optionType});
+  const SubOptionsScreen({
+    super.key,
+    required this.optionType,
+    this.searchQuery = '',
+  });
 
   @override
   Widget build(BuildContext context) {
     final options = optionType == OptionType.coffees ? coffeesMenu : foodsMenu;
     final title =
         optionType == OptionType.coffees ? tr('coffees') : tr('foods');
+
+    // Filtrar conforme searchQuery
+    final filteredOptions = searchQuery.isEmpty
+        ? options
+        : options
+            .where((opt) => tr(opt.labelKey)
+                .toLowerCase()
+                .contains(searchQuery.toLowerCase()))
+            .toList();
+
+    // Separar por categoria
+    Map<String, List<MenuItem>> categorized = {};
+    if (optionType == OptionType.coffees) {
+      categorized = {
+        'quentes': filteredOptions
+            .where((o) => o.id == 'drip' || o.id == 'cafe_au_lait')
+            .toList(),
+        'gelados': filteredOptions.where((o) => o.id == 'ice').toList(),
+      };
+    } else {
+      categorized = {
+        'paes': filteredOptions.where((o) => o.id == 'egg_sandwich').toList(),
+        'salgados': filteredOptions
+            .where((o) => o.id == 'ham_cheese_croissant')
+            .toList(),
+      };
+    }
 
     return Scaffold(
       appBar: AppBar(
@@ -24,52 +56,75 @@ class SubOptionsScreen extends StatelessWidget {
       ),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
-        child: GridView.count(
-          crossAxisCount: 2,
-          mainAxisSpacing: 16,
-          crossAxisSpacing: 16,
-          children: options.map((opt) {
-            return GestureDetector(
-              onTap: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (_) => ProductDetailScreen(item: opt),
+        child: ListView(
+          children: categorized.entries.map((entry) {
+            final category = entry.key;
+            final items = entry.value;
+
+            if (items.isEmpty) return const SizedBox.shrink();
+
+            return Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  tr(category),
+                  style: const TextStyle(
+                    fontSize: 20,
+                    fontWeight: FontWeight.bold,
                   ),
-                );
-              },
-              child: Stack(
-                fit: StackFit.expand,
-                children: [
-                  ClipRRect(
-                    borderRadius: BorderRadius.circular(8),
-                    child: Image.asset(opt.imagePath, fit: BoxFit.cover),
-                  ),
-                  Container(
-                    alignment: Alignment.center,
-                    decoration: BoxDecoration(
-                      color: Colors.black38,
-                      borderRadius: BorderRadius.circular(8),
-                    ),
-                    child: Text(
-                      tr(opt.labelKey),
-                      style: const TextStyle(
-                        color: Colors.white,
-                        fontSize: 18,
-                        fontWeight: FontWeight.bold,
-                        shadows: [Shadow(blurRadius: 2, color: Colors.black)],
+                ),
+                const SizedBox(height: 8),
+                GridView.count(
+                  shrinkWrap: true,
+                  physics: const NeverScrollableScrollPhysics(),
+                  crossAxisCount: 2,
+                  mainAxisSpacing: 16,
+                  crossAxisSpacing: 16,
+                  children: items.map((opt) {
+                    return GestureDetector(
+                      onTap: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (_) => ProductDetailScreen(item: opt),
+                          ),
+                        );
+                      },
+                      child: Column(
+                        children: [
+                          SizedBox(
+                            height: 120, // 🔥 altura fixa para padronizar
+                            width: double.infinity,
+                            child: ClipRRect(
+                              borderRadius: BorderRadius.circular(8),
+                              child: Image.asset(
+                                opt.imagePath,
+                                fit: BoxFit.cover, // corta e preenche
+                              ),
+                            ),
+                          ),
+                          const SizedBox(height: 6),
+                          Text(
+                            tr(opt.labelKey),
+                            style: const TextStyle(
+                              fontSize: 16,
+                              fontWeight: FontWeight.w500,
+                            ),
+                            textAlign: TextAlign.center,
+                          ),
+                        ],
                       ),
-                      textAlign: TextAlign.center,
-                    ),
-                  ),
-                ],
-              ),
+                    );
+                  }).toList(),
+                ),
+                const SizedBox(height: 20),
+              ],
             );
           }).toList(),
         ),
       ),
       bottomNavigationBar: CustomBottomNavBar(
-        currentIndex: 0, // Mantemos Home como referência
+        currentIndex: 0,
         onTap: (index) {
           switch (index) {
             case 0:

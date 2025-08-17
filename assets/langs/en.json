@@ -27,5 +27,23 @@
   "confirm_order": "Confirm Order",
   "yes": "Yes",
   "no": "No",
-  "thank_you_order": "Thank you for your order"
+  "thank_you_order": "Thank you for your order",
+
+  "search": "Search",
+  "categories": "Categories",
+
+  "promo_title": "Discount:",
+  "promo_message": "Pay with PayPay and get 5% off",
+
+  "quentes": "Hot",
+  "gelados": "Iced",
+  "paes": "Sandwiches and Breads",
+  "salgados": "Savory",
+
+  "drip_description": "A hot, aromatic and full-bodied drip coffee.",
+  "ice_description": "Refreshing iced coffee for hot days.",
+  "cafe_au_lait_description": "Coffee with creamy milk and balanced flavor.",
+  "egg_sandwich_description": "Classic and delicious egg sandwich.",
+  "ham_cheese_croissant_description": "Croissant filled with ham and melted cheese."
+
 }

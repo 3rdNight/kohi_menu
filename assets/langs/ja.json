@@ -6,7 +6,7 @@
   "dark": "ダーク",
   "menu": "メニュー",
   "home": "ホーム",
-  "orders": "注文履歴",
+  "orders": "注文",
   "settings": "設定",
 
   "coffees": "コーヒー",
@@ -20,12 +20,30 @@
   "ham_cheese_croissant": "ハムチーズクロワッサン",
 
   "add_to_cart": "カートに追加",
-  "added_to_cart": "カートに追加されました",
+  "added_to_cart": "カートに追加しました",
 
   "cart_empty": "カートは空です",
   "total": "合計",
-  "confirm_order": "注文を確定する",
+  "confirm_order": "注文を確認",
   "yes": "はい",
   "no": "いいえ",
-  "thank_you_order": "ご注文ありがとうございます"
+  "thank_you_order": "ご注文ありがとうございました",
+
+  "search": "検索",
+  "categories": "カテゴリー",
+
+  "promo_title": "キャンペーン：",
+  "promo_message": "PayPayで支払うと5％割引",
+
+  "quentes": "ホット",
+  "gelados": "アイス",
+  "paes": "サンドイッチ",
+  "salgados": "惣菜パン",
+
+  "drip_description": "香り高く、コクのあるホットドリップコーヒーです。",
+  "ice_description": "暑い日にぴったりのさわやかなアイスコーヒーです。",
+  "cafe_au_lait_description": "クリーミーなミルク入りでバランスの良いカフェオレです。",
+  "egg_sandwich_description": "クラシックで美味しい卵サンドイッチです。",
+  "ham_cheese_croissant_description": "ハムとチーズが入ったクロワッサンです。"
+
 }

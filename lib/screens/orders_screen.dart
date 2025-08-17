@@ -23,14 +23,14 @@ class _OrdersScreenState extends State<OrdersScreen> {
     final result = await showDialog<bool>(
       context: context,
       builder: (ctx) => AlertDialog(
-        title: Text(tr('confirm_order')), // "Confirmar pedido?"
+        title: Text(tr('confirm_order')),
         actions: [
           TextButton(
-            onPressed: () => Navigator.of(ctx).pop(false), // Não
+            onPressed: () => Navigator.of(ctx).pop(false),
             child: Text(tr('no')),
           ),
           TextButton(
-            onPressed: () => Navigator.of(ctx).pop(true), // Sim
+            onPressed: () => Navigator.of(ctx).pop(true),
             child: Text(tr('yes')),
           ),
         ],
@@ -38,8 +38,8 @@ class _OrdersScreenState extends State<OrdersScreen> {
     );
 
     if (result == true) {
-      cart.clear(); // Limpa o carrinho
-      setState(() {}); // Atualiza a tela
+      cart.clear();
+      setState(() {});
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(
           content: Text(tr('thank_you_order')),
@@ -62,7 +62,17 @@ class _OrdersScreenState extends State<OrdersScreen> {
                 final priceText =
                     '${c.quantity} x ${formatPrice(c.item.price)}';
                 return ListTile(
-                  leading: Image.asset(c.item.imagePath, width: 50),
+                  leading: SizedBox(
+                    width: 50,
+                    height: 50,
+                    child: ClipRRect(
+                      borderRadius: BorderRadius.circular(8),
+                      child: Image.asset(
+                        c.item.imagePath,
+                        fit: BoxFit.cover, // garante que preencha o quadrado
+                      ),
+                    ),
+                  ),
                   title: Text(tr(c.item.labelKey)),
                   subtitle: Text(priceText),
                   trailing: IconButton(
@@ -75,7 +85,6 @@ class _OrdersScreenState extends State<OrdersScreen> {
       bottomNavigationBar: Column(
         mainAxisSize: MainAxisSize.min,
         children: [
-          // Total + botão de confirmar pedido
           Container(
             padding: const EdgeInsets.all(16),
             child: Row(
@@ -94,7 +103,6 @@ class _OrdersScreenState extends State<OrdersScreen> {
               ],
             ),
           ),
-          // Bottom navigation
           CustomBottomNavBar(
             currentIndex: 1,
             onTap: (index) {
