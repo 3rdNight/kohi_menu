@@ -3,6 +3,7 @@ import 'package:easy_localization/easy_localization.dart';
 import 'screens/home_screen.dart';
 import 'screens/orders_screen.dart';
 import 'screens/settings_screen.dart';
+import 'screens/order_history_screen.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -65,6 +66,7 @@ class _MyAppState extends State<MyApp> {
       routes: {
         '/': (context) => const HomeScreen(),
         '/orders': (context) => const OrdersScreen(),
+        '/order_history': (context) => const OrderHistoryScreen(),
         '/settings': (context) => const SettingsScreen(),
       },
     );

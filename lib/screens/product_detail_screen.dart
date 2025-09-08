@@ -6,7 +6,6 @@ import '../widgets/custom_bottom_nav_bar.dart';
 
 class ProductDetailScreen extends StatefulWidget {
   final MenuItem item;
-
   const ProductDetailScreen({super.key, required this.item});
 
   @override
@@ -42,38 +41,33 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
               ),
             ),
             const SizedBox(height: 16),
-            Text(
-              tr(item.labelKey),
-              style: TextStyle(
-                  fontSize: 24, fontWeight: FontWeight.bold, color: textColor),
-            ),
+            Text(tr(item.labelKey),
+                style: TextStyle(
+                    fontSize: 24,
+                    fontWeight: FontWeight.bold,
+                    color: textColor)),
             const SizedBox(height: 4),
-            Text(
-              formatPrice(item.price),
-              style: TextStyle(fontSize: 18, color: textColor.withOpacity(0.7)),
-            ),
+            Text(formatPrice(item.price),
+                style:
+                    TextStyle(fontSize: 18, color: textColor.withOpacity(0.7))),
             const SizedBox(height: 12),
-            Text(
-              tr(item.descriptionKey),
-              style: TextStyle(fontSize: 16, color: textColor),
-              textAlign: TextAlign.center,
-            ),
+            Text(tr(item.descriptionKey),
+                style: TextStyle(fontSize: 16, color: textColor),
+                textAlign: TextAlign.center),
             const SizedBox(height: 20),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 IconButton(
-                  onPressed: decrement,
-                  icon: const Icon(Icons.remove_circle_outline),
-                  color: textColor,
-                ),
+                    onPressed: decrement,
+                    icon: const Icon(Icons.remove_circle_outline),
+                    color: textColor),
                 Text(quantity.toString(),
                     style: TextStyle(fontSize: 20, color: textColor)),
                 IconButton(
-                  onPressed: increment,
-                  icon: const Icon(Icons.add_circle_outline),
-                  color: textColor,
-                ),
+                    onPressed: increment,
+                    icon: const Icon(Icons.add_circle_outline),
+                    color: textColor),
               ],
             ),
             const SizedBox(height: 20),
@@ -82,16 +76,15 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
               label: Text(tr('add_to_cart')),
               onPressed: () {
                 for (int i = 0; i < quantity; i++) addToCart(item);
-                ScaffoldMessenger.of(context).showSnackBar(
-                  SnackBar(content: Text(tr('added_to_cart'))),
-                );
+                ScaffoldMessenger.of(context)
+                    .showSnackBar(SnackBar(content: Text(tr('added_to_cart'))));
               },
             ),
           ],
         ),
       ),
       bottomNavigationBar: CustomBottomNavBar(
-        currentIndex: 0,
+        currentIndex: 1,
         onTap: (index) {
           switch (index) {
             case 0:
@@ -101,6 +94,9 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
               Navigator.pushReplacementNamed(context, '/orders');
               break;
             case 2:
+              Navigator.pushReplacementNamed(context, '/order_history');
+              break;
+            case 3:
               Navigator.pushReplacementNamed(context, '/settings');
               break;
           }

@@ -21,29 +21,19 @@ class _CustomBottomNavBarState extends State<CustomBottomNavBar> {
     return BottomNavigationBar(
       currentIndex: widget.currentIndex,
       onTap: widget.onTap,
-      backgroundColor: Colors.brown[800],
+      backgroundColor: const Color(0xFF0AA545), // verde escuro
       type: BottomNavigationBarType.fixed,
       showUnselectedLabels: true,
-      selectedItemColor: Colors.white,
-      unselectedItemColor: Colors.white,
-      selectedLabelStyle: const TextStyle(color: Colors.white),
+      selectedItemColor: Colors.yellow[600], // destaque do item selecionado
+      unselectedItemColor: Colors.white, // itens não selecionados
+      selectedLabelStyle: const TextStyle(color: Colors.yellow),
       unselectedLabelStyle: const TextStyle(color: Colors.white),
       items: [
+        _buildNavItem(index: 0, icon: Icons.home, label: tr('home')),
+        _buildNavItem(index: 1, icon: Icons.shopping_cart, label: tr('cart')),
         _buildNavItem(
-          index: 0,
-          icon: Icons.home,
-          label: tr('home'),
-        ),
-        _buildNavItem(
-          index: 1,
-          icon: Icons.shopping_cart,
-          label: tr('orders'),
-        ),
-        _buildNavItem(
-          index: 2,
-          icon: Icons.settings,
-          label: tr('settings'),
-        ),
+            index: 2, icon: Icons.history, label: tr('order_history')),
+        _buildNavItem(index: 3, icon: Icons.settings, label: tr('settings')),
       ],
     );
   }
@@ -61,17 +51,10 @@ class _CustomBottomNavBarState extends State<CustomBottomNavBar> {
         padding: const EdgeInsets.all(8),
         decoration: BoxDecoration(
           shape: BoxShape.circle,
-          color: isSelected ? Colors.orange[300] : Colors.orange[100],
-          border: Border.all(
-            color: Colors.white,
-            width: 2,
-          ),
+          color: isSelected ? Colors.yellow[600] : Colors.green[700],
+          border: Border.all(color: Colors.white, width: 2),
         ),
-        child: Icon(
-          icon,
-          color: Colors.white,
-          size: 22,
-        ),
+        child: Icon(icon, color: Colors.white, size: 22),
       ),
       label: label,
     );

@@ -1,5 +1,5 @@
 {
-  "app_title": "ラテライン",
+  "app_title": "コーヒーメニュー",
   "language": "言語",
   "theme": "テーマ",
   "light": "ライト",
@@ -8,42 +8,109 @@
   "home": "ホーム",
   "orders": "注文",
   "settings": "設定",
-
-  "coffees": "コーヒー",
-  "foods": "フード",
-
-  "drip": "ドリップコーヒー",
-  "ice": "アイスコーヒー",
-  "cafe_au_lait": "カフェオレ",
-
-  "egg_sandwich": "卵サンド",
-  "ham_cheese_croissant": "ハムチーズクロワッサン",
-
+  "welcome_noushoku": "農食へようこそ！",
   "add_to_cart": "カートに追加",
   "added_to_cart": "カートに追加しました",
-
   "cart_empty": "カートは空です",
   "total": "合計",
-  "confirm_order": "注文を確認",
+  "confirm_order": "注文を確定",
   "yes": "はい",
   "no": "いいえ",
-  "thank_you_order": "ご注文ありがとうございました",
+  "thank_you_order": "ご注文ありがとうございます",
+  "cart": "カート",
+  "order_history": "注文履歴",
+  "no_orders_yet": "まだ注文はありません",
+  "quantity": "数量",
+  "checkout": "お会計",
+  "confirm_checkout": "お会計を確定しますか？",
+  "checkout_done": "お会計が完了しました",
+  "meals": "食事",
+  "drinks": "飲み物",
+  "subcategory_pasta": "パスタ",
+  "subcategory_homemade_curry": "自家製カレー",
+  "subcategory_warm_rice_flour_noodles": "温かい米粉めん",
+  "subcategory_salad": "サラダ",
+  "subcategory_tempura": "天ぷら・揚げ物",
+  "subcategory_juice": "ジュース",
+  "subcategory_coffee": "コーヒー",
+  "subcategory_tea": "お茶",
+  "subcategory_alcohol": "アルコール",
 
-  "search": "検索",
-  "categories": "カテゴリー",
+  "pasta_seasonal_veggie_seafood_tomato": "季節の野菜シーフードのトマトソース",
+  "pasta_seasonal_veggie_dashi": "季節の野菜の和風だし",
+  "pasta_pork_anchovy": "豚バラと季節野菜のアンチョビ和味",
+  "pasta_bolognese_cream": "ボロネーゼと農場野菜クリーム仕立て",
 
-  "promo_title": "キャンペーン：",
-  "promo_message": "PayPayで支払うと5％割引",
+  "curry_chicken_veggie": "農場野菜とチキンのカレー",
+  "curry_katsu": "カツカレー",
+  "curry_healthy": "カラダ*カレー",
 
-  "quentes": "ホット",
-  "gelados": "アイス",
-  "paes": "サンドイッチ",
-  "salgados": "惣菜パン",
+  "warm_rice_plain": "かけめん",
+  "warm_rice_veggie": "農場野菜の米粉温めん",
+  "warm_rice_tempura": "エビと野菜かき揚の米粉温めん",
 
-  "drip_description": "香り高く、コクのあるホットドリップコーヒーです。",
-  "ice_description": "暑い日にぴったりのさわやかなアイスコーヒーです。",
-  "cafe_au_lait_description": "クリーミーなミルク入りでバランスの良いカフェオレです。",
-  "egg_sandwich_description": "クラシックで美味しい卵サンドイッチです。",
-  "ham_cheese_croissant_description": "ハムとチーズが入ったクロワッサンです。"
+  "salad_farm_local": "農工大野菜や地元野菜のたっぷりサラダ",
+  "salad_chicken": "野菜とチキンのサラダ",
 
+  "tempura_seasonal": "季節野菜の天ぷら盛り合わせ",
+  "tempura_fries": "ポテトフライ",
+
+  "pasta_seasonal_veggie_seafood_tomato_desc": "季節の野菜とシーフードのトマトソースパスタです。",
+  "pasta_seasonal_veggie_dashi_desc": "季節の野菜を和風だしでいただくあっさりパスタ。",
+  "pasta_pork_anchovy_desc": "豚バラと季節野菜のアンチョビ風味パスタ。",
+  "pasta_bolognese_cream_desc": "農場野菜入りのクリーミーボロネーゼパスタ。",
+
+  "curry_chicken_veggie_desc": "農場野菜とチキンを使ったマイルドなカレー。",
+  "curry_katsu_desc": "サクサクのカツをのせたクラシックカレー。",
+  "curry_healthy_desc": "体に優しい野菜カレーです。",
+
+  "warm_rice_plain_desc": "シンプルな米粉温めん。",
+  "warm_rice_veggie_desc": "農場野菜入りの米粉温めん。",
+  "warm_rice_tempura_desc": "エビと野菜かき揚の米粉温めん。",
+  
+  "salad_farm_local_desc": "農場や地元の野菜をたっぷり使ったサラダ。",
+  "salad_chicken_desc": "野菜とチキンを使ったサラダ。",
+  
+  "tempura_seasonal_desc": "季節野菜の天ぷら盛り合わせ。",
+  "tempura_fries_desc": "カリカリのポテトフライ。",
+
+  "juice_farm_veggie_latte": "農場野菜ラテ",
+  
+  "coffee_organic": "オーガニックコーヒー",
+  "coffee_matcha_steamed_latte": "抹茶スチームラテ",
+  "coffee_hojicha_steamed_latte": "ほうじ茶スチームラテ",
+  "coffee_espresso_steamed_latte": "エスプレッソスチームラテ",
+  "coffee_royal_tea_steamed_latte": "ロイヤルティースチームラテ",
+  "coffee_cocoa_steamed_latte": "ココアスチームラテ",
+  
+  "tea_strong_matcha_straight": "ストロング抹茶ストレート",
+  "tea_farm_yogurt_drink": "農工大乳酸菌飲料",
+  "tea_white_tree_medical_herb": "WHITE TREE メディカルハーブティー",
+  "tea_beauty_blend": "ビューティーブレンド",
+  
+  "alcohol_sapporo_small": "サッポロ黒ラベル小瓶",
+  "alcohol_sparkling_wine": "スパークリングワイン",
+  "alcohol_white_wine": "白ワイン",
+  "alcohol_red_wine": "赤ワイン",
+  "alcohol_local_sake": "地酒　国府鶴",
+
+  "juice_farm_veggie_latte_desc": "農場野菜のラテです。新鮮でヘルシー。",
+
+  "coffee_organic_desc": "香り豊かなオーガニックコーヒーです。",
+  "coffee_matcha_steamed_latte_desc": "抹茶スチームラテ。なめらかでクリーミー。",
+  "coffee_hojicha_steamed_latte_desc": "ほうじ茶スチームラテ。香ばしい風味。",
+  "coffee_espresso_steamed_latte_desc": "エスプレッソスチームラテ。濃くて滑らか。",
+  "coffee_royal_tea_steamed_latte_desc": "ロイヤルティースチームラテ。クリーミーで贅沢。",
+  "coffee_cocoa_steamed_latte_desc": "ココアスチームラテ。甘くてホッとする味。",
+
+  "tea_strong_matcha_straight_desc": "ストロング抹茶ストレート。濃厚な風味。",
+  "tea_farm_yogurt_drink_desc": "農工大乳酸菌飲料。健康的で爽やか。",
+  "tea_white_tree_medical_herb_desc": "WHITE TREE メディカルハーブティー。落ち着く香り。",
+  "tea_beauty_blend_desc": "ビューティーブレンドハーブティー。美容と健康に。",
+
+  "alcohol_sapporo_small_desc": "サッポロ黒ラベル小瓶。すっきりして飲みやすい。",
+  "alcohol_sparkling_wine_desc": "スパークリングワイン。華やかで泡立ち豊か。",
+  "alcohol_white_wine_desc": "白ワイン。爽やかでフレッシュ。",
+  "alcohol_red_wine_desc": "赤ワイン。濃厚で滑らか。",
+  "alcohol_local_sake_desc": "地酒「国府鶴」。本格的で味わい深い。"
 }

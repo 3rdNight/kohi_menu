@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:easy_localization/easy_localization.dart';
 import '../data/cart.dart';
 import '../data/menu_data.dart';
+import '../data/order_history.dart';
 import '../widgets/custom_bottom_nav_bar.dart';
 
 class OrdersScreen extends StatefulWidget {
@@ -38,8 +39,21 @@ class _OrdersScreenState extends State<OrdersScreen> {
     );
 
     if (result == true) {
+      // Adiciona itens ao histórico acumulando quantidade
+      for (var c in cart) {
+        try {
+          final existing =
+              orderHistory.firstWhere((o) => o.item.id == c.item.id);
+          existing.quantity += c.quantity;
+        } catch (e) {
+          orderHistory.add(OrderItem(item: c.item, quantity: c.quantity));
+        }
+      }
+
+      // Limpa o carrinho
       cart.clear();
       setState(() {});
+
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(
           content: Text(tr('thank_you_order')),
@@ -52,7 +66,7 @@ class _OrdersScreenState extends State<OrdersScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text(tr('orders')), centerTitle: true),
+      appBar: AppBar(title: Text(tr('cart')), centerTitle: true),
       body: cart.isEmpty
           ? Center(child: Text(tr('cart_empty')))
           : ListView.builder(
@@ -67,10 +81,7 @@ class _OrdersScreenState extends State<OrdersScreen> {
                     height: 50,
                     child: ClipRRect(
                       borderRadius: BorderRadius.circular(8),
-                      child: Image.asset(
-                        c.item.imagePath,
-                        fit: BoxFit.cover, // garante que preencha o quadrado
-                      ),
+                      child: Image.asset(c.item.imagePath, fit: BoxFit.cover),
                     ),
                   ),
                   title: Text(tr(c.item.labelKey)),
@@ -104,7 +115,7 @@ class _OrdersScreenState extends State<OrdersScreen> {
             ),
           ),
           CustomBottomNavBar(
-            currentIndex: 1,
+            currentIndex: 1, // Cart
             onTap: (index) {
               switch (index) {
                 case 0:
@@ -114,6 +125,9 @@ class _OrdersScreenState extends State<OrdersScreen> {
                   Navigator.pushReplacementNamed(context, '/orders');
                   break;
                 case 2:
+                  Navigator.pushReplacementNamed(context, '/order_history');
+                  break;
+                case 3:
                   Navigator.pushReplacementNamed(context, '/settings');
                   break;
               }

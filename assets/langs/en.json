@@ -1,5 +1,5 @@
 {
-  "app_title": "LatteLine",
+  "app_title": "Kohi Menu",
   "language": "Language",
   "theme": "Theme",
   "light": "Light",
@@ -8,42 +8,109 @@
   "home": "Home",
   "orders": "Orders",
   "settings": "Settings",
-
-  "coffees": "Coffees",
-  "foods": "Foods",
-
-  "drip": "Drip Coffee",
-  "ice": "Iced Coffee",
-  "cafe_au_lait": "Café au Lait",
-
-  "egg_sandwich": "Egg Sandwich",
-  "ham_cheese_croissant": "Ham & Cheese Croissant",
-
+  "welcome_noushoku": "Welcome to Noushoku!",
   "add_to_cart": "Add to cart",
   "added_to_cart": "Added to cart",
-
   "cart_empty": "Cart is empty",
   "total": "Total",
-  "confirm_order": "Confirm Order",
+  "confirm_order": "Place Order",
   "yes": "Yes",
   "no": "No",
   "thank_you_order": "Thank you for your order",
+  "cart": "Cart",
+  "order_history": "Order History",
+  "no_orders_yet": "No orders yet",
+  "quantity": "Quantity",
+  "checkout": "Checkout",
+  "confirm_checkout": "Confirm checkout?",
+  "checkout_done": "Checkout completed",
+  "meals": "Meals",
+  "drinks": "Drinks",
+  "subcategory_pasta": "Pasta",
+  "subcategory_homemade_curry": "Homemade Curry",
+  "subcategory_warm_rice_flour_noodles": "Warm Rice Flour Noodles",
+  "subcategory_salad": "Salad",
+  "subcategory_tempura": "Deep-fry",
+  "subcategory_juice": "Juice",
+  "subcategory_coffee": "Coffee",
+  "subcategory_tea": "Tea",
+  "subcategory_alcohol": "Alcohol",
 
-  "search": "Search",
-  "categories": "Categories",
+  "pasta_seasonal_veggie_seafood_tomato": "Seasonal Veggie & Seafood Tomato Pasta",
+  "pasta_seasonal_veggie_dashi": "Seasonal Veggie Dashi Pasta",
+  "pasta_pork_anchovy": "Pork Belly & Seasonal Veggie Anchovy Pasta",
+  "pasta_bolognese_cream": "Bolognese with Farm Veggie Cream",
 
-  "promo_title": "Discount:",
-  "promo_message": "Pay with PayPay and get 5% off",
+  "curry_chicken_veggie": "Farm Veggie & Chicken Curry",
+  "curry_katsu": "Katsu Curry",
+  "curry_healthy": "Healthy Veggie Curry",
 
-  "quentes": "Hot",
-  "gelados": "Iced",
-  "paes": "Sandwiches and Breads",
-  "salgados": "Savory",
+  "warm_rice_plain": "Plain Rice Flour Noodles",
+  "warm_rice_veggie": "Farm Veggie Rice Flour Noodles",
+  "warm_rice_tempura": "Shrimp & Veggie Tempura Rice Flour Noodles",
 
-  "drip_description": "A hot, aromatic and full-bodied drip coffee.",
-  "ice_description": "Refreshing iced coffee for hot days.",
-  "cafe_au_lait_description": "Coffee with creamy milk and balanced flavor.",
-  "egg_sandwich_description": "Classic and delicious egg sandwich.",
-  "ham_cheese_croissant_description": "Croissant filled with ham and melted cheese."
+  "salad_farm_local": "Farm & Local Veggie Salad",
+  "salad_chicken": "Veggie & Chicken Salad",
 
+  "tempura_seasonal": "Seasonal Vegetable Tempura",
+  "tempura_fries": "French Fries",
+
+  "pasta_seasonal_veggie_seafood_tomato_desc": "A rich tomato sauce pasta with seasonal vegetables and seafood.",
+  "pasta_seasonal_veggie_dashi_desc": "A light Japanese-style pasta with seasonal vegetables in dashi broth.",
+  "pasta_pork_anchovy_desc": "Pasta with pork belly, seasonal vegetables, and anchovy flavor.",
+  "pasta_bolognese_cream_desc": "Creamy bolognese pasta with fresh farm vegetables.",
+
+  "curry_chicken_veggie_desc": "Farm vegetable and chicken curry with mild spices.",
+  "curry_katsu_desc": "Classic katsu curry with crispy fried cutlet.",
+  "curry_healthy_desc": "Healthy vegetable curry designed for a balanced body.",
+
+  "warm_rice_plain_desc": "Simple rice flour noodles served in warm broth.",
+  "warm_rice_veggie_desc": "Rice flour noodles with farm vegetables in warm broth.",
+  "warm_rice_tempura_desc": "Rice flour noodles topped with shrimp and vegetable tempura.",
+
+  "salad_farm_local_desc": "A generous salad with farm and local vegetables.",
+  "salad_chicken_desc": "Salad with fresh vegetables and grilled chicken.",
+
+  "tempura_seasonal_desc": "Assorted tempura with seasonal vegetables.",
+  "tempura_fries_desc": "Crispy golden French fries.",
+
+  "juice_farm_veggie_latte": "Farm Veggie Latte",
+
+  "coffee_organic": "Organic Coffee",
+  "coffee_matcha_steamed_latte": "Matcha Steamed Latte",
+  "coffee_hojicha_steamed_latte": "Hojicha Steamed Latte",
+  "coffee_espresso_steamed_latte": "Espresso Steamed Latte",
+  "coffee_royal_tea_steamed_latte": "Royal Tea Steamed Latte",
+  "coffee_cocoa_steamed_latte": "Cocoa Steamed Latte",
+  
+  "tea_strong_matcha_straight": "Strong Matcha Straight",
+  "tea_farm_yogurt_drink": "Farm Yogurt Drink",
+  "tea_white_tree_medical_herb": "White Tree Medical Herb Tea",
+  "tea_beauty_blend": "Beauty Blend Herbal Tea",
+  
+  "alcohol_sapporo_small": "Sapporo Black Label Small",
+  "alcohol_sparkling_wine": "Sparkling Wine",
+  "alcohol_white_wine": "White Wine",
+  "alcohol_red_wine": "Red Wine",
+  "alcohol_local_sake": "Local Sake 'Kokufu Tsuru'",
+
+  "juice_farm_veggie_latte_desc": "Farm vegetable latte, fresh and healthy.",
+
+  "coffee_organic_desc": "Organic coffee with rich aroma.",
+  "coffee_matcha_steamed_latte_desc": "Steamed matcha latte, smooth and creamy.",
+  "coffee_hojicha_steamed_latte_desc": "Steamed hojicha latte, aromatic roasted tea flavor.",
+  "coffee_espresso_steamed_latte_desc": "Espresso steamed latte, strong and smooth.",
+  "coffee_royal_tea_steamed_latte_desc": "Royal tea steamed latte, creamy and luxurious.",
+  "coffee_cocoa_steamed_latte_desc": "Steamed cocoa latte, sweet and comforting.",
+
+  "tea_strong_matcha_straight_desc": "Strong straight matcha, bold flavor.",
+  "tea_farm_yogurt_drink_desc": "Nokoudaigaku lactic acid drink, healthy and refreshing.",
+  "tea_white_tree_medical_herb_desc": "White Tree medical herb tea, calming and aromatic.",
+  "tea_beauty_blend_desc": "Beauty blend herbal tea, promoting wellness.",
+
+  "alcohol_sapporo_small_desc": "Sapporo Black Label small bottle, crisp and refreshing.",
+  "alcohol_sparkling_wine_desc": "Sparkling wine, elegant and bubbly.",
+  "alcohol_white_wine_desc": "White wine, crisp and fresh.",
+  "alcohol_red_wine_desc": "Red wine, rich and smooth.",
+  "alcohol_local_sake_desc": "Local sake 'Koufu Tsuru', authentic and flavorful."
 }

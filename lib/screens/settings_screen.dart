@@ -17,10 +17,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
     final isDarkMode = MyApp.of(context)?.themeMode == ThemeMode.dark;
 
     return Scaffold(
-      appBar: AppBar(
-        title: Text(tr('settings')), // agora o título mostra "Settings"
-        centerTitle: true,
-      ),
+      appBar: AppBar(title: Text(tr('settings')), centerTitle: true),
       body: Padding(
         padding: const EdgeInsets.all(16),
         child: Column(
@@ -71,7 +68,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
         ),
       ),
       bottomNavigationBar: CustomBottomNavBar(
-        currentIndex: 2,
+        currentIndex: 3, // Settings
         onTap: (index) {
           switch (index) {
             case 0:
@@ -81,6 +78,9 @@ class _SettingsScreenState extends State<SettingsScreen> {
               Navigator.pushReplacementNamed(context, '/orders');
               break;
             case 2:
+              Navigator.pushReplacementNamed(context, '/order_history');
+              break;
+            case 3:
               Navigator.pushReplacementNamed(context, '/settings');
               break;
           }
